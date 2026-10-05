@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function Why() {
   return (
-    <Section id="o-nas" labelledBy="o-nas-title">
+    <Section id="o-nas" tone="muted" labelledBy="o-nas-title">
       <SectionHeading
         id="o-nas-title"
         eyebrow="Dlaczego NEXITO"
@@ -26,8 +26,10 @@ export function Why() {
               aria-hidden="true"
               className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"
             />
-            <Icon className="size-6 text-brand-soft" aria-hidden="true" />
-            <h3 className={cn("mt-8 font-semibold tracking-tight text-foreground", index < 2 ? "text-2xl" : "text-xl")}>
+            <span className="flex size-12 items-center justify-center rounded-xl bg-brand text-brand-foreground shadow-[0_8px_20px_-10px_var(--brand)]">
+              <Icon className="size-6" aria-hidden="true" />
+            </span>
+            <h3 className={cn("mt-6 font-bold tracking-tight text-foreground", index < 2 ? "text-2xl" : "text-xl")}>
               {title}
             </h3>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground sm:text-base">{description}</p>

@@ -16,17 +16,17 @@ export function Showcases() {
       <Stagger as="ul" className="mt-14 grid gap-4 md:grid-cols-3">
         {showcases.map((showcase) => (
           <StaggerItem as="li" key={showcase.title}>
-            <article className="group card-surface flex h-full flex-col rounded-2xl p-3 transition-all duration-500 hover:-translate-y-1 hover:border-white/15">
+            <article className="group card-surface flex h-full flex-col rounded-2xl p-3 transition-all duration-500 hover:-translate-y-1 hover:border-brand/30">
               <ShowcasePreview variant={showcase.variant} />
               <div className="flex flex-1 flex-col p-4 pt-5">
-                <p className="font-mono text-[11px] tracking-widest text-brand-soft uppercase">
+                <p className="text-xs font-bold tracking-[0.14em] text-brand-soft uppercase">
                   {showcase.kind === "concept" ? showcase.label : "Realizacja"}
                 </p>
-                <h3 className="mt-2 text-lg font-semibold tracking-tight text-foreground">{showcase.title}</h3>
+                <h3 className="mt-2 text-lg font-bold tracking-tight text-foreground">{showcase.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{showcase.description}</p>
                 <ul className="mt-5 flex flex-wrap gap-1.5" aria-label="Główne elementy">
                   {showcase.tags.map((tag) => (
-                    <li key={tag} className="rounded-full border border-white/10 px-2.5 py-1 text-[11px] text-muted-foreground">
+                    <li key={tag} className="rounded-full border border-border bg-surface px-2.5 py-1 text-xs font-medium text-muted-foreground">
                       {tag}
                     </li>
                   ))}

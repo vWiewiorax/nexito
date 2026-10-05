@@ -12,7 +12,7 @@ const points = [
 
 export function Contact() {
   return (
-    <Section id="kontakt" labelledBy="kontakt-title">
+    <Section id="kontakt" tone="dark" labelledBy="kontakt-title">
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
         <div>
           <SectionHeading

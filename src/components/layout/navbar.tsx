@@ -24,13 +24,11 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled
-          ? "border-white/[0.07] bg-background/70 backdrop-blur-xl backdrop-saturate-150"
-          : "border-transparent bg-transparent",
+        "fixed inset-x-0 top-0 z-50 w-full border-b border-border bg-background transition-shadow duration-300",
+        scrolled && "shadow-[0_10px_30px_-15px_oklch(0.2_0.03_268/0.25)]",
       )}
     >
-      <nav aria-label="Główna nawigacja" className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-8">
+      <nav aria-label="Główna nawigacja" className="flex h-[72px] w-full items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <Logo />
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -38,7 +36,7 @@ export function Navbar() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors outline-none hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {item.label}
               </Link>
@@ -47,33 +45,33 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <CtaLink href={contactHref} className="h-9 px-4 text-[13px] sm:text-sm">
+          <CtaLink href={contactHref} className="h-10 px-4 text-[13px] sm:px-5 sm:text-sm">
             Porozmawiajmy
           </CtaLink>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Otwórz menu"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-foreground transition-colors outline-none hover:bg-white/[0.08] focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring md:hidden"
             >
               <Menu className="size-5" aria-hidden="true" />
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full max-w-none border-white/10 bg-background/95 p-0 backdrop-blur-xl data-[side=right]:w-full data-[side=right]:sm:max-w-sm"
+              className="w-full max-w-none border-border bg-background p-0 data-[side=right]:w-full data-[side=right]:sm:max-w-sm"
             >
-              <div className="flex h-16 items-center px-5">
+              <div className="flex h-[72px] items-center border-b border-border px-5">
                 <SheetTitle className="sr-only">Menu</SheetTitle>
                 <SheetDescription className="sr-only">Nawigacja po stronie NEXITO</SheetDescription>
                 <Logo />
               </div>
-              <ul className="flex flex-col px-3 pt-4">
+              <ul className="flex flex-col px-3 pt-2">
                 {mainNav.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between rounded-xl px-3 py-4 text-2xl font-medium tracking-tight text-foreground/90 transition-colors outline-none hover:bg-white/[0.04] focus-visible:ring-2 focus-visible:ring-ring"
+                      className="flex items-center justify-between rounded-xl px-3 py-4 font-heading text-2xl font-bold tracking-tight text-foreground transition-colors outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       {item.label}
                     </Link>

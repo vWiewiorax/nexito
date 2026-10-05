@@ -35,7 +35,7 @@ export function Logo({ className }: { className?: string }) {
       )}
     >
       <LogoMark />
-      <span className="text-[15px] font-semibold tracking-[0.18em] text-foreground">NEXITO</span>
+      <span className="font-heading text-base font-extrabold tracking-[0.14em] text-foreground">NEXITO</span>
     </Link>
   );
 }

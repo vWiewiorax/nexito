@@ -6,7 +6,7 @@ export function LegalPage({ title, intro, sections }: { title: string; intro: st
   return (
     <section aria-labelledby="legal-title" className="pt-32 pb-24 sm:pt-40">
       <Container className="max-w-3xl">
-        <h1 id="legal-title" className="text-gradient text-4xl font-semibold tracking-[-0.04em] sm:text-5xl">
+        <h1 id="legal-title" className="text-gradient text-4xl font-extrabold tracking-[-0.035em] sm:text-5xl">
           {title}
         </h1>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground">{intro}</p>

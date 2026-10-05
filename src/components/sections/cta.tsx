@@ -7,8 +7,8 @@ export function Cta() {
   return (
     <section aria-labelledby="cta-title" className="relative py-16 sm:py-24">
       <Container>
-        <Reveal className="relative isolate overflow-hidden rounded-[28px] border border-white/10 px-6 py-20 text-center sm:px-16 sm:py-28">
-          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[oklch(0.15_0.01_275)]" />
+        <Reveal className="dark relative isolate overflow-hidden rounded-[28px] border border-white/10 text-foreground px-6 py-20 text-center sm:px-16 sm:py-28">
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(160deg,oklch(0.26_0.08_275)_0%,oklch(0.17_0.04_272)_100%)]" />
           <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-60" />
           <div
             aria-hidden="true"
@@ -20,7 +20,7 @@ export function Cta() {
           />
           <h2
             id="cta-title"
-            className="text-gradient mx-auto max-w-3xl text-4xl font-semibold tracking-[-0.04em] text-balance sm:text-5xl md:text-6xl"
+            className="text-gradient mx-auto max-w-3xl text-4xl font-extrabold tracking-[-0.035em] text-balance sm:text-5xl md:text-6xl"
           >
             Masz pomysł? Zbudujmy go razem.
           </h2>

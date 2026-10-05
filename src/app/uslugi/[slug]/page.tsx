@@ -38,8 +38,9 @@ export default async function ServicePage({ params }: Props) {
 
   return (
     <>
-      <section aria-labelledby="service-title" className="relative overflow-hidden pt-32 pb-16 sm:pt-40">
+      <section aria-labelledby="service-title" className="dark relative isolate overflow-hidden bg-background pt-32 pb-20 text-foreground sm:pt-40">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-[linear-gradient(160deg,oklch(0.26_0.08_275)_0%,oklch(0.18_0.04_272)_55%,oklch(0.15_0.03_270)_100%)]" />
           <div className="bg-grid mask-radial absolute inset-0 opacity-60" />
           <div className="absolute -top-40 left-1/2 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-brand/20 blur-[120px]" />
         </div>
@@ -62,7 +63,7 @@ export default async function ServicePage({ params }: Props) {
           <Reveal delay={0.1}>
             <h1
               id="service-title"
-              className="text-gradient mt-6 max-w-3xl text-4xl leading-[1.05] font-semibold tracking-[-0.04em] text-balance sm:text-6xl"
+              className="text-gradient mt-6 max-w-3xl text-4xl leading-[1.05] font-extrabold tracking-[-0.035em] text-balance sm:text-6xl"
             >
               {service.headline}
             </h1>
@@ -84,23 +85,23 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <Section labelledBy="features-title" className="py-16 sm:py-20">
-        <h2 id="features-title" className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 id="features-title" className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
           Co obejmuje usługa
         </h2>
         <Stagger as="ul" className="mt-10 grid gap-4 sm:grid-cols-2">
           {service.features.map((feature) => (
             <StaggerItem as="li" key={feature.title} className="card-surface rounded-2xl p-7">
-              <h3 className="text-lg font-semibold tracking-tight text-foreground">{feature.title}</h3>
+              <h3 className="text-lg font-bold tracking-tight text-foreground">{feature.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
             </StaggerItem>
           ))}
         </Stagger>
       </Section>
 
-      <Section labelledBy="for-whom-title" className="py-16 sm:py-20">
+      <Section tone="muted" labelledBy="for-whom-title" className="py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <h2 id="for-whom-title" className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            <h2 id="for-whom-title" className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
               Dla kogo
             </h2>
             <ul className="mt-8 flex flex-col gap-4">
@@ -115,13 +116,13 @@ export default async function ServicePage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">Pozostałe usługi</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">Pozostałe usługi</h2>
             <ul className="mt-8 grid gap-2 sm:grid-cols-2">
               {others.map((item) => (
                 <li key={item.slug}>
                   <Link
                     href={`/uslugi/${item.slug}`}
-                    className="flex items-center gap-3 rounded-xl border border-white/[0.07] px-4 py-3 text-sm text-muted-foreground transition-colors outline-none hover:border-white/15 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                    className="flex items-center gap-3 rounded-xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition-colors outline-none hover:border-brand/40 hover:text-brand-soft focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <item.icon className="size-4 text-brand-soft" aria-hidden="true" />
                     {item.title}
