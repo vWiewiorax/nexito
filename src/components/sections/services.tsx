@@ -30,7 +30,7 @@ export function Services() {
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
               <Link
                 href={`/uslugi/${slug}`}
-                className="mt-6 inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-foreground/80 transition-colors outline-none after:absolute after:inset-0 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                className="mt-6 inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-foreground/90 transition-colors outline-none after:absolute after:inset-0 hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Dowiedz się więcej
                 <span className="sr-only">: {title}</span>

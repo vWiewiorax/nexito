@@ -14,7 +14,7 @@ export function Platform() {
             id="rozwiazania-title"
             eyebrow="Rozwiązania"
             title="Nie tworzymy tylko stron. Tworzymy narzędzia dla biznesu."
-            description="Strona to dopiero początek. Łączymy ją z systemami, które obsługują klientów, zamówienia i procesy - automatycznie."
+            description="Strona to dopiero początek. Łączymy ją z systemami, które obsługują klientów, zamówienia i procesy. Automatycznie."
           />
 
           <Reveal delay={0.1} className="mt-10 grid gap-3 sm:grid-cols-2">
@@ -22,8 +22,8 @@ export function Platform() {
               <h3 className="text-sm font-medium text-muted-foreground">Zwykła strona WWW</h3>
               <ul className="mt-4 flex flex-col gap-3">
                 {comparison.basic.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm text-muted-foreground/80">
-                    <Minus className="mt-0.5 size-4 shrink-0 text-white/25" aria-hidden="true" />
+                  <li key={point} className="flex items-start gap-2.5 text-sm text-muted-foreground">
+                    <Minus className="mt-0.5 size-4 shrink-0 text-white/55" aria-hidden="true" />
                     {point}
                   </li>
                 ))}

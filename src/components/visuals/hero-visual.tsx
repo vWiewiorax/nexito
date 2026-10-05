@@ -61,7 +61,7 @@ export function HeroVisual() {
           <span className="size-2.5 rounded-full bg-white/15" />
           <span className="size-2.5 rounded-full bg-white/15" />
           <span className="size-2.5 rounded-full bg-white/15" />
-          <span className="ml-3 rounded-md bg-white/[0.05] px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+          <span className="ml-3 rounded-md bg-white/[0.05] px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
             app.twojafirma.pl/panel
           </span>
         </div>
@@ -74,7 +74,7 @@ export function HeroVisual() {
                 className={
                   index === 0
                     ? "flex size-8 items-center justify-center rounded-lg bg-brand/20 text-brand-soft"
-                    : "flex size-8 items-center justify-center rounded-lg text-white/35"
+                    : "flex size-8 items-center justify-center rounded-lg text-white/55"
                 }
               >
                 <Icon className="size-4" />
@@ -88,7 +88,7 @@ export function HeroVisual() {
                 <p className="text-[11px] text-muted-foreground">Przegląd</p>
                 <p className="text-sm font-medium text-foreground">Wyniki firmy</p>
               </div>
-              <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] text-muted-foreground">
+              <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
                 30 dni
               </span>
             </div>
@@ -100,7 +100,7 @@ export function HeroVisual() {
                 { label: "Zadania auto", value: "312" },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5">
-                  <p className="text-[10px] text-muted-foreground">{stat.label}</p>
+                  <p className="text-[11px] text-muted-foreground">{stat.label}</p>
                   <p className="mt-1 text-sm font-semibold tracking-tight text-foreground sm:text-base">{stat.value}</p>
                 </div>
               ))}
@@ -152,7 +152,7 @@ export function HeroVisual() {
               <div className="flex w-28 flex-col justify-between rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 sm:w-32">
                 <Server className="size-4 text-brand-soft" />
                 <div>
-                  <p className="text-[10px] text-muted-foreground">Infrastruktura</p>
+                  <p className="text-[11px] text-muted-foreground">Infrastruktura</p>
                   <p className="text-xs font-medium text-foreground">Stabilna</p>
                 </div>
               </div>

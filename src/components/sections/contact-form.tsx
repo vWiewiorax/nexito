@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 type Status = "idle" | "submitting" | "success" | "error";
 
 const fieldClass =
-  "h-11 rounded-xl border-white/10 bg-white/[0.03] px-3.5 text-[15px] placeholder:text-white/30 focus-visible:border-brand/60 focus-visible:ring-brand/25 md:text-sm";
+  "h-11 rounded-xl border-white/10 bg-white/[0.03] px-3.5 text-[15px] placeholder:text-white/55 focus-visible:border-brand/60 focus-visible:ring-brand/25 md:text-sm";
 
 export function ContactForm() {
   const [needs, setNeeds] = useState<string[]>([]);

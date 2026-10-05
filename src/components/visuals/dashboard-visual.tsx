@@ -60,7 +60,7 @@ export function DashboardVisual() {
             <span className="size-2.5 rounded-full bg-white/15" />
             <span className="size-2.5 rounded-full bg-white/15" />
           </div>
-          <span className="font-mono text-[10px] text-muted-foreground">Panel administracyjny</span>
+          <span className="font-mono text-[11px] text-muted-foreground">Panel administracyjny</span>
         </div>
 
         <div className="grid grid-cols-[minmax(0,150px)_1fr] sm:grid-cols-[180px_1fr]">
@@ -77,7 +77,7 @@ export function DashboardVisual() {
               >
                 <Icon className={i === 1 ? "size-3.5 shrink-0 text-brand-soft" : "size-3.5 shrink-0"} />
                 <span className="truncate">{label}</span>
-                {meta && <span className="ml-auto font-mono text-[10px] text-white/40">{meta}</span>}
+                {meta && <span className="ml-auto font-mono text-[11px] text-white/60">{meta}</span>}
               </motion.li>
             ))}
           </motion.ul>
@@ -89,7 +89,7 @@ export function DashboardVisual() {
                 { label: "Nowi klienci", value: "+24" },
               ].map((stat) => (
                 <motion.div key={stat.label} variants={row} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5">
-                  <p className="truncate text-[10px] text-muted-foreground">{stat.label}</p>
+                  <p className="truncate text-[11px] text-muted-foreground">{stat.label}</p>
                   <p className="mt-1 text-sm font-semibold tracking-tight text-foreground">{stat.value}</p>
                 </motion.div>
               ))}
@@ -98,7 +98,7 @@ export function DashboardVisual() {
             <motion.div variants={container} className="mt-3 rounded-xl border border-white/[0.06] bg-white/[0.02]">
               <div className="flex items-center justify-between border-b border-white/[0.06] px-3 py-2">
                 <p className="text-[11px] font-medium text-foreground">Ostatnie zamówienia</p>
-                <p className="font-mono text-[10px] text-muted-foreground">dziś</p>
+                <p className="font-mono text-[11px] text-muted-foreground">dziś</p>
               </div>
               {orders.map((order) => (
                 <motion.div
@@ -106,19 +106,19 @@ export function DashboardVisual() {
                   variants={row}
                   className="flex items-center gap-2 border-b border-white/[0.04] px-3 py-2 text-[11px] last:border-0"
                 >
-                  <span className="font-mono text-white/40">{order.id}</span>
+                  <span className="font-mono text-white/60">{order.id}</span>
                   <span className="truncate text-foreground/90">{order.client}</span>
-                  <span className="ml-auto hidden rounded-full bg-brand/10 px-2 py-0.5 text-[10px] text-brand-soft sm:inline">
+                  <span className="ml-auto hidden rounded-full bg-brand/10 px-2 py-0.5 text-[11px] text-brand-soft sm:inline">
                     {order.status}
                   </span>
-                  <span className="shrink-0 font-mono text-foreground/80">{order.amount}</span>
+                  <span className="shrink-0 font-mono text-foreground/90">{order.amount}</span>
                 </motion.div>
               ))}
             </motion.div>
 
             <motion.div
               variants={row}
-              className="mt-3 flex flex-wrap items-center gap-1.5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5 text-[10px] text-muted-foreground"
+              className="mt-3 flex flex-wrap items-center gap-1.5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-2.5 text-[11px] text-muted-foreground"
             >
               <Workflow className="size-3.5 text-brand-soft" />
               <span className="rounded-md bg-white/[0.05] px-1.5 py-0.5">Zamówienie</span>
