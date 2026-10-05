@@ -14,7 +14,7 @@ export function Platform() {
             id="rozwiazania-title"
             eyebrow="Rozwiązania"
             title="Nie tworzymy tylko stron. Tworzymy narzędzia dla biznesu."
-            description="Strona to dopiero początek. Łączymy ją z systemami, które obsługują klientów, zamówienia i procesy — automatycznie."
+            description="Strona to dopiero początek. Łączymy ją z systemami, które obsługują klientów, zamówienia i procesy - automatycznie."
           />
 
           <Reveal delay={0.1} className="mt-10 grid gap-3 sm:grid-cols-2">

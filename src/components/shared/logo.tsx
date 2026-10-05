@@ -28,7 +28,7 @@ export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
-      aria-label="NEXITO — strona główna"
+      aria-label="NEXITO - strona główna"
       className={cn(
         "inline-flex items-center gap-2.5 rounded-md outline-none focus-visible:ring-2 focus-visible:ring-ring",
         className,

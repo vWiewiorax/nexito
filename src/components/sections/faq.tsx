@@ -11,7 +11,7 @@ export function Faq() {
           id="faq-title"
           eyebrow="FAQ"
           title="Najczęstsze pytania."
-          description="Nie znalazłeś odpowiedzi? Napisz do nas — chętnie porozmawiamy o szczegółach."
+          description="Nie znalazłeś odpowiedzi? Napisz do nas - chętnie porozmawiamy o szczegółach."
         />
         <Reveal delay={0.1}>
           <Accordion className="rounded-2xl border border-white/[0.07] bg-white/[0.015] px-5 sm:px-7">

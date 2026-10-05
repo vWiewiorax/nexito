@@ -108,7 +108,7 @@ export function ContactForm() {
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="phone">
-                  Telefon <span className="font-normal text-muted-foreground">— opcjonalnie</span>
+                  Telefon <span className="font-normal text-muted-foreground">- opcjonalnie</span>
                 </Label>
                 <Input id="phone" name="phone" type="tel" autoComplete="tel" maxLength={contactLimits.phone} placeholder="+48" className={fieldClass} />
               </div>

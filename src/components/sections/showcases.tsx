@@ -10,7 +10,7 @@ export function Showcases() {
         id="realizacje-title"
         eyebrow="Przykładowe koncepty"
         title="Co możemy stworzyć dla Twojej firmy?"
-        description="Poniżej przykładowe koncepty rozwiązań, które projektujemy i budujemy. To ilustracje możliwości — nie realizacje dla konkretnych klientów."
+        description="Poniżej przykładowe koncepty rozwiązań, które projektujemy i budujemy. To ilustracje możliwości - nie realizacje dla konkretnych klientów."
       />
 
       <Stagger as="ul" className="mt-14 grid gap-4 md:grid-cols-3">

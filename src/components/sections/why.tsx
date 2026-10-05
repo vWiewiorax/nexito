@@ -10,7 +10,7 @@ export function Why() {
         id="o-nas-title"
         eyebrow="Dlaczego NEXITO"
         title="Technologia bez zbędnego komplikowania."
-        description="Jesteśmy zespołem, który łączy inżynierię oprogramowania z rozumieniem biznesu. Budujemy rozwiązania, które mają sens — dziś i za kilka lat."
+        description="Jesteśmy zespołem, który łączy inżynierię oprogramowania z rozumieniem biznesu. Budujemy rozwiązania, które mają sens - dziś i za kilka lat."
       />
 
       <Stagger className="mt-14 grid gap-4 md:grid-cols-6">

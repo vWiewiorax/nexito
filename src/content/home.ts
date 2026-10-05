@@ -28,7 +28,7 @@ export const processSteps = [
   {
     number: "02",
     title: "Projektujemy rozwiązanie",
-    description: "Proponujemy zakres, architekturę i projekt interfejsu — zanim powstanie kod.",
+    description: "Proponujemy zakres, architekturę i projekt interfejsu - zanim powstanie kod.",
   },
   {
     number: "03",
@@ -87,7 +87,7 @@ export const showcases: Showcase[] = [
     variant: "saas",
     label: "Koncept 01",
     title: "Platforma SaaS",
-    description: "Produkt z kontami użytkowników, subskrypcjami i panelem analitycznym — gotowy do sprzedaży jako usługa.",
+    description: "Produkt z kontami użytkowników, subskrypcjami i panelem analitycznym - gotowy do sprzedaży jako usługa.",
     tags: ["Subskrypcje", "Multi-tenant", "Analityka"],
   },
   {
@@ -95,7 +95,7 @@ export const showcases: Showcase[] = [
     variant: "system",
     label: "Koncept 02",
     title: "System zarządzania firmą",
-    description: "Jedno miejsce na klientów, zlecenia, zadania zespołu i raporty — zamiast arkuszy i e-maili.",
+    description: "Jedno miejsce na klientów, zlecenia, zadania zespołu i raporty - zamiast arkuszy i e-maili.",
     tags: ["CRM", "Zlecenia", "Automatyzacje"],
   },
   {
@@ -112,12 +112,12 @@ export const faqs = [
   {
     question: "Ile kosztuje stworzenie strony internetowej?",
     answer:
-      "Koszt zależy od zakresu: liczby podstron, funkcji i integracji. Po krótkiej rozmowie przygotowujemy konkretną wycenę i zakres prac — bez ukrytych kosztów.",
+      "Koszt zależy od zakresu: liczby podstron, funkcji i integracji. Po krótkiej rozmowie przygotowujemy konkretną wycenę i zakres prac - bez ukrytych kosztów.",
   },
   {
     question: "Ile trwa stworzenie systemu?",
     answer:
-      "Prostsze wdrożenia zajmują zwykle kilka tygodni, rozbudowane systemy — kilka miesięcy. Często startujemy od wersji podstawowej, aby szybciej dostarczyć wartość.",
+      "Prostsze wdrożenia zajmują zwykle kilka tygodni, rozbudowane systemy - kilka miesięcy. Często startujemy od wersji podstawowej, aby szybciej dostarczyć wartość.",
   },
   {
     question: "Czy tworzycie aplikacje SaaS od zera?",
@@ -142,6 +142,6 @@ export const faqs = [
   {
     question: "Czy można zacząć od prostego rozwiązania i później je rozbudować?",
     answer:
-      "Tak — to często najlepsza droga. Projektujemy rozwiązania tak, aby można je było bezpiecznie rozwijać wraz z firmą.",
+      "Tak - to często najlepsza droga. Projektujemy rozwiązania tak, aby można je było bezpiecznie rozwijać wraz z firmą.",
   },
 ];

@@ -80,7 +80,7 @@ export const services: Service[] = [
     description: "Nowoczesne sklepy stworzone z myślą o sprzedaży i rozwoju.",
     headline: "E-commerce zaprojektowany pod sprzedaż.",
     intro:
-      "Budujemy sklepy, które są szybkie, wygodne na telefonie i łatwe w obsłudze dla Twojego zespołu — z płatnościami, dostawami i integracjami.",
+      "Budujemy sklepy, które są szybkie, wygodne na telefonie i łatwe w obsłudze dla Twojego zespołu - z płatnościami, dostawami i integracjami.",
     features: [
       { title: "Ścieżka zakupowa", description: "Prosty, szybki checkout ograniczający porzucone koszyki." },
       { title: "Płatności i dostawy", description: "Popularne bramki płatności i przewoźnicy w jednym miejscu." },
@@ -97,7 +97,7 @@ export const services: Service[] = [
     description: "Łączymy narzędzia i automatyzujemy powtarzalne procesy.",
     headline: "Mniej ręcznej pracy. Więcej czasu na biznes.",
     intro:
-      "Łączymy narzędzia, z których już korzystasz, i automatyzujemy powtarzalne zadania — także z wykorzystaniem AI tam, gdzie realnie pomaga.",
+      "Łączymy narzędzia, z których już korzystasz, i automatyzujemy powtarzalne zadania - także z wykorzystaniem AI tam, gdzie realnie pomaga.",
     features: [
       { title: "Integracje API", description: "Wymiana danych między systemami bez kopiowania." },
       { title: "Przepływy pracy", description: "Automatyczne powiadomienia, zadania i dokumenty." },
