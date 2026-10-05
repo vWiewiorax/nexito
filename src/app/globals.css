@@ -1,26 +1,131 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-brand: var(--brand);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-success: var(--success);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: dark;
+  --background: oklch(0.13 0.005 270);
+  --foreground: oklch(0.97 0.003 270);
+  --card: oklch(0.17 0.006 270);
+  --card-foreground: oklch(0.97 0.003 270);
+  --popover: oklch(0.16 0.006 270);
+  --popover-foreground: oklch(0.97 0.003 270);
+  --primary: oklch(0.97 0.003 270);
+  --primary-foreground: oklch(0.15 0.005 270);
+  --secondary: oklch(0.22 0.008 270);
+  --secondary-foreground: oklch(0.97 0.003 270);
+  --muted: oklch(0.21 0.007 270);
+  --muted-foreground: oklch(0.7 0.012 270);
+  --accent: oklch(0.22 0.008 270);
+  --accent-foreground: oklch(0.97 0.003 270);
+  --destructive: oklch(0.7 0.19 22);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.66 0.2 277);
+  --brand: oklch(0.66 0.2 277);
+  --brand-soft: oklch(0.78 0.13 277);
+  --brand-foreground: oklch(0.99 0 0);
+  --success: oklch(0.78 0.16 155);
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply scroll-smooth font-sans;
+    scroll-padding-top: 5.5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: clip;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--brand) 45%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility text-gradient {
+  background-image: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.99 0 0 / 0.62) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-brand {
+  background-image: linear-gradient(90deg, var(--brand-soft) 0%, oklch(0.75 0.15 300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, oklch(1 0 0 / 4.5%) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(1 0 0 / 4.5%) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility glass {
+  background: linear-gradient(180deg, oklch(1 0 0 / 6%) 0%, oklch(1 0 0 / 2.5%) 100%);
+  border: 1px solid oklch(1 0 0 / 9%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+@utility card-surface {
+  background: linear-gradient(180deg, oklch(0.18 0.007 270) 0%, oklch(0.155 0.006 270) 100%);
+  border: 1px solid oklch(1 0 0 / 8%);
+}
+
+@utility mask-fade-b {
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+
+@utility mask-radial {
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
 }

@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NEXITO — strona firmowa
 
-## Getting Started
+Next.js 15 (App Router) · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Lucide · Framer Motion.
 
-First, run the development server:
+## Uruchomienie
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run lint && npm run typecheck && npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Konfiguracja (`.env.local`, patrz `.env.example`)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `NEXT_PUBLIC_SITE_URL` — publiczny adres strony (canonical, Open Graph, sitemap). Na Vercelu domyślnie użyty zostanie `VERCEL_PROJECT_PRODUCTION_URL`.
+- `CONTACT_WEBHOOK_URL` — opcjonalny webhook (Make, Zapier, n8n, Slack…), na który `POST /api/contact` przekazuje zgłoszenia jako JSON. Bez niego zgłoszenia są tylko logowane po stronie serwera.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Struktura
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app` — strony (`/`, `/uslugi/[slug]`, `/polityka-prywatnosci`, `/cookies`), API formularza, OG image, robots, sitemap.
+- `src/components/sections` — sekcje strony głównej (Hero, Usługi, Rozwiązania, Proces, Dlaczego NEXITO, Koncepty, CTA, FAQ, Kontakt).
+- `src/components/visuals` — abstrakcyjne wizualizacje dashboardów (dane poglądowe).
+- `src/components/layout` — Navbar i Footer; `src/components/shared` — wspólne elementy (Section, CtaLink, Logo).
+- `src/content` — wszystkie treści (usługi, FAQ, proces, benefity, koncepty). Prawdziwe realizacje dodaj w `showcases` w `src/content/home.ts` z `kind: "case-study"`.
