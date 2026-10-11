@@ -52,7 +52,7 @@ export function DashboardVisual() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[oklch(0.16_0.008_270/0.9)] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)]"
+        className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[oklch(0.16_0.008_258/0.9)] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)]"
       >
         <div className="flex items-center justify-between border-b border-white/[0.06] px-4 py-3">
           <div className="flex items-center gap-2">
@@ -139,7 +139,7 @@ export function DashboardVisual() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.97 }}
             transition={{ duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[oklch(0.2_0.01_272/0.92)] backdrop-blur-xl px-3.5 py-2.5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]"
+            className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-[oklch(0.2_0.01_258/0.92)] backdrop-blur-xl px-3.5 py-2.5 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.8)]"
           >
             <CheckCircle2 className="size-4 shrink-0 text-success" />
             <p className="truncate text-xs text-foreground">{notifications[index]}</p>

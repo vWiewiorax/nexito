@@ -25,7 +25,7 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 w-full border-b border-border bg-background transition-shadow duration-300",
-        scrolled && "shadow-[0_10px_30px_-15px_oklch(0.2_0.03_268/0.25)]",
+        scrolled && "shadow-[0_10px_30px_-15px_oklch(0.2_0.03_255/0.25)]",
       )}
     >
       <nav aria-label="Główna nawigacja" className="flex h-[72px] w-full items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">

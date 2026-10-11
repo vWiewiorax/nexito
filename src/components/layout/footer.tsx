@@ -14,7 +14,7 @@ const columns = [
     title: "Firma",
     links: [
       { label: "O nas", href: "/#o-nas" },
-      { label: "Realizacje", href: "/#realizacje" },
+      { label: "Portfolio", href: "/portfolio" },
       { label: "Kontakt", href: "/#kontakt" },
       { label: "FAQ", href: "/#faq" },
     ],
@@ -30,7 +30,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="dark relative border-t border-white/[0.08] bg-[oklch(0.13_0.025_272)] text-foreground">
+    <footer className="dark relative border-t border-white/[0.08] bg-[oklch(0.13_0.025_258)] text-foreground">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-4">

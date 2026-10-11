@@ -81,7 +81,7 @@ const previews = {
 export function ShowcasePreview({ variant }: { variant: Showcase["variant"] }) {
   const Preview = previews[variant];
   return (
-    <div aria-hidden="true" className="dark relative h-40 overflow-hidden rounded-xl border border-white/[0.06] bg-[oklch(0.15_0.007_270)]">
+    <div aria-hidden="true" className="dark relative h-40 overflow-hidden rounded-xl border border-white/[0.06] bg-[oklch(0.15_0.007_258)]">
       <div className="bg-grid absolute inset-0 opacity-40" />
       <div className="relative h-full">
         <Preview />

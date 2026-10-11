@@ -30,7 +30,7 @@ function FloatingCard({
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: delay * 2 }}
-          className="rounded-2xl border border-white/10 bg-[oklch(0.2_0.01_272/0.92)] px-4 py-3 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+          className="rounded-2xl border border-white/10 bg-[oklch(0.2_0.01_258/0.92)] px-4 py-3 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
         >
           {children}
         </motion.div>
@@ -55,7 +55,7 @@ export function HeroVisual() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
         style={{ y: ySlow }}
-        className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[oklch(0.16_0.008_270/0.85)] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+        className="relative overflow-hidden rounded-[22px] border border-white/10 bg-[oklch(0.16_0.008_258/0.85)] shadow-[0_40px_120px_-30px_rgba(0,0,0,0.9)] backdrop-blur-xl"
       >
         <div className="flex items-center gap-2 border-b border-white/[0.06] px-4 py-3">
           <span className="size-2.5 rounded-full bg-white/15" />

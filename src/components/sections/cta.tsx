@@ -8,7 +8,7 @@ export function Cta() {
     <section aria-labelledby="cta-title" className="relative py-16 sm:py-24">
       <Container>
         <Reveal className="dark relative isolate overflow-hidden rounded-[28px] border border-white/10 text-foreground px-6 py-20 text-center sm:px-16 sm:py-28">
-          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(160deg,oklch(0.26_0.08_275)_0%,oklch(0.17_0.04_272)_100%)]" />
+          <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(160deg,oklch(0.26_0.08_258)_0%,oklch(0.17_0.04_258)_100%)]" />
           <div aria-hidden="true" className="bg-grid mask-radial absolute inset-0 -z-10 opacity-60" />
           <div
             aria-hidden="true"

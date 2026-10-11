@@ -2,6 +2,7 @@ import { Section, SectionHeading } from "@/components/shared/section";
 import { Stagger, StaggerItem } from "@/components/motion/reveal";
 import { ShowcasePreview } from "@/components/visuals/showcase-preview";
 import { showcases } from "@/content/home";
+import { CtaLink } from "@/components/shared/cta-link";
 
 export function Showcases() {
   return (
@@ -36,6 +37,11 @@ export function Showcases() {
           </StaggerItem>
         ))}
       </Stagger>
+      <div className="mt-10 flex justify-center">
+        <CtaLink href="/portfolio" variant="secondary" arrow>
+          Zobacz nasze portfolio
+        </CtaLink>
+      </div>
     </Section>
   );
 }
