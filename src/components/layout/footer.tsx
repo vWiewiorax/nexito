@@ -24,6 +24,7 @@ const columns = [
     title: "Prawne",
     links: [
       { label: "Polityka prywatności", href: "/polityka-prywatnosci" },
+      { label: "Regulamin", href: "/regulamin" },
       { label: "Cookies", href: "/cookies" },
     ],
   },
@@ -31,7 +32,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="dark relative border-t border-white/[0.08] bg-[oklch(0.13_0.025_258)] text-foreground">
+    <footer className="relative border-t border-border bg-white text-foreground">
       <Container className="py-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div className="flex flex-col gap-4">
@@ -56,7 +57,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/[0.06] pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 NEXITO. Wszystkie prawa zastrzeżone.</p>
           <p className="font-mono tracking-wide">Technologia dla Twojego biznesu.</p>
         </div>
