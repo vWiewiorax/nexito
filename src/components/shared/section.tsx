@@ -51,23 +51,31 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ id, eyebrow, title, description, align = "left", className }: SectionHeadingProps) {
   return (
-    <Reveal
+    <div
       className={cn(
         "flex max-w-2xl flex-col gap-5",
         align === "center" && "mx-auto items-center text-center",
         className,
       )}
     >
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2
-        id={id}
-        className="text-gradient text-3xl font-extrabold tracking-[-0.03em] text-balance sm:text-4xl md:text-[2.75rem] md:leading-[1.08]"
-      >
-        {title}
-      </h2>
-      {description && (
-        <p className="max-w-xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">{description}</p>
+      {eyebrow && (
+        <Reveal y={10}>
+          <Eyebrow>{eyebrow}</Eyebrow>
+        </Reveal>
       )}
-    </Reveal>
+      <Reveal delay={0.08} y={22}>
+        <h2
+          id={id}
+          className="text-gradient text-3xl font-extrabold tracking-[-0.03em] text-balance sm:text-4xl md:text-[2.75rem] md:leading-[1.08]"
+        >
+          {title}
+        </h2>
+      </Reveal>
+      {description && (
+        <Reveal delay={0.16}>
+          <p className="max-w-xl text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">{description}</p>
+        </Reveal>
+      )}
+    </div>
   );
 }
