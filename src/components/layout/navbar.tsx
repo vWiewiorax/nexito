@@ -31,12 +31,12 @@ export function Navbar() {
       <nav aria-label="Główna nawigacja" className="flex h-[72px] w-full items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
         <Logo />
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-0.5 lg:flex">
           {mainNav.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+                className="rounded-full px-3 py-2 text-sm font-medium xl:px-4 text-muted-foreground transition-colors outline-none hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
               >
                 {item.label}
               </Link>
@@ -52,7 +52,7 @@ export function Navbar() {
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Otwórz menu"
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring md:hidden"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring lg:hidden"
             >
               <Menu className="size-5" aria-hidden="true" />
             </SheetTrigger>
