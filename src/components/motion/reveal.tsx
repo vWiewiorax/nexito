@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 const ease = [0.21, 0.47, 0.32, 0.98] as const;
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease } },
+  hidden: { opacity: 0, y: 28, scale: 0.97 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.65, ease } },
 };
 
 type RevealProps = {
@@ -41,7 +41,7 @@ type StaggerProps = {
   as?: "div" | "ul" | "ol";
 };
 
-export function Stagger({ children, className, stagger = 0.08, as = "div" }: StaggerProps) {
+export function Stagger({ children, className, stagger = 0.1, as = "div" }: StaggerProps) {
   const Component = motion[as];
   return (
     <Component
