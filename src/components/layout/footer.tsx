@@ -15,6 +15,7 @@ const columns = [
     links: [
       { label: "O nas", href: "/#o-nas" },
       { label: "Portfolio", href: "/portfolio" },
+      { label: "Blog", href: "/blog" },
       { label: "Kontakt", href: "/#kontakt" },
       { label: "FAQ", href: "/#faq" },
     ],
