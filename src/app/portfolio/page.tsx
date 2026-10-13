@@ -9,13 +9,13 @@ import { Cta } from "@/components/sections/cta";
 import { portfolio } from "@/content/portfolio";
 import { contactHref } from "@/content/navigation";
 
-const description = "Wybrane strony i projekty zrealizowane przez NEXITO.";
+const description = "Wybrane strony i projekty zrealizowane przez NEXIWEB.";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description,
   alternates: { canonical: "/portfolio" },
-  openGraph: { title: "Portfolio - NEXITO", description, url: "/portfolio" },
+  openGraph: { title: "Portfolio - NEXIWEB", description, url: "/portfolio" },
 };
 
 export default function PortfolioPage() {

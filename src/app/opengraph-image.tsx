@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "NEXITO - Technologia dla Twojego biznesu";
+export const alt = "NEXIWEB - Technologia dla Twojego biznesu";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,11 +32,17 @@ export default function OpengraphImage() {
               justifyContent: "center",
             }}
           >
-            <svg width="32" height="32" viewBox="0 0 32 32">
-              <path d="M6 26V6l20 20V6" fill="none" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <svg width="56" height="56" viewBox="0 0 32 32">
+              <path d="M9.5 22.5V9.5l13 13V9.5" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="9.5" cy="22.5" r="2.6" fill="white" />
+              <circle cx="9.5" cy="9.5" r="2.6" fill="white" />
+              <circle cx="22.5" cy="22.5" r="2.6" fill="white" />
+              <circle cx="22.5" cy="9.5" r="2.6" fill="white" />
             </svg>
           </div>
-          <div style={{ fontSize: 30, fontWeight: 600, letterSpacing: 8 }}>NEXITO</div>
+          <div style={{ display: "flex", fontSize: 34, fontWeight: 700, letterSpacing: 4 }}>
+            NEXI<span style={{ color: "#5aa2ff" }}>WEB</span>
+          </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ fontSize: 76, fontWeight: 700, letterSpacing: -3, lineHeight: 1.05, maxWidth: 900 }}>

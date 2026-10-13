@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...submission, submittedAt: new Date().toISOString(), source: "nexito-website" }),
+        body: JSON.stringify({ ...submission, submittedAt: new Date().toISOString(), source: "nexiweb-website" }),
       });
       if (!response.ok) throw new Error(`Webhook responded with ${response.status}`);
     } catch (error) {

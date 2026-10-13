@@ -62,7 +62,7 @@ export function Navbar() {
             >
               <div className="flex h-[72px] items-center border-b border-border px-5">
                 <SheetTitle className="sr-only">Menu</SheetTitle>
-                <SheetDescription className="sr-only">Nawigacja po stronie NEXITO</SheetDescription>
+                <SheetDescription className="sr-only">Nawigacja po stronie NEXIWEB</SheetDescription>
                 <Logo />
               </div>
               <ul className="flex flex-col px-3 pt-2">

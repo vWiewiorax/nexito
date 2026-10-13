@@ -16,7 +16,7 @@ export const trustPoints = [
 
 export const comparison = {
   basic: ["Wizytówka z ofertą", "Formularz trafia do skrzynki", "Ręczne przepisywanie danych", "Brak wglądu w wyniki"],
-  nexito: ["Strona połączona z systemem", "Zapytania trafiają do CRM", "Automatyczne procesy i powiadomienia", "Analityka w czasie rzeczywistym"],
+  nexiweb: ["Strona połączona z systemem", "Zapytania trafiają do CRM", "Automatyczne procesy i powiadomienia", "Analityka w czasie rzeczywistym"],
 };
 
 export const processSteps = [

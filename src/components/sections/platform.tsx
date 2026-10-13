@@ -30,9 +30,9 @@ export function Platform() {
               </ul>
             </div>
             <div className="relative rounded-2xl border border-brand/30 bg-card p-5 shadow-[0_20px_40px_-20px_oklch(0.4_0.15_256/0.4)]">
-              <h3 className="text-sm font-bold text-brand-soft">Rozwiązanie NEXITO</h3>
+              <h3 className="text-sm font-bold text-brand-soft">Rozwiązanie NEXIWEB</h3>
               <ul className="mt-4 flex flex-col gap-3">
-                {comparison.nexito.map((point) => (
+                {comparison.nexiweb.map((point) => (
                   <li key={point} className="flex items-start gap-2.5 text-sm text-foreground/90">
                     <Check className="mt-0.5 size-4 shrink-0 text-brand-soft" aria-hidden="true" />
                     {point}

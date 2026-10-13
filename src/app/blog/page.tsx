@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description,
   alternates: { canonical: "/blog" },
-  openGraph: { title: "Blog - NEXITO", description, url: "/blog" },
+  openGraph: { title: "Blog - NEXIWEB", description, url: "/blog" },
 };
 
 export default function BlogPage() {
