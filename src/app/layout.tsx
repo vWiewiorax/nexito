@@ -59,7 +59,9 @@ const organizationJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pl" className={`${inter.variable} ${jakarta.variable} ${geistMono.variable}`}>
-      <head><meta name="google-site-verification" content="W2qK9CC4QQGZk-qcqxb6WwgGLntZMyDrN6JeBTdbHIY" /></head>
+      
+      <head><meta name="msvalidate.01" content="B997D72EDCAB2A971EEA94B058717A44" /> 
+      <meta name="google-site-verification" content="W2qK9CC4QQGZk-qcqxb6WwgGLntZMyDrN6JeBTdbHIY" /></head>
       <body>
         <a
           href="#main"
