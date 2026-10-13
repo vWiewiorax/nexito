@@ -26,6 +26,12 @@ export default function PrivacyPage() {
           ],
         },
         {
+          title: "Ochrona formularza przed spamem",
+          content: [
+            "Formularz kontaktowy chroni usługa Cloudflare Turnstile, która sprawdza, czy wiadomość wysyła człowiek. W tym celu Cloudflare przetwarza m.in. adres IP i podstawowe informacje o przeglądarce, zgodnie ze swoją polityką prywatności.",
+          ],
+        },
+        {
           title: "Okres przechowywania",
           content: ["Dane przechowujemy przez czas niezbędny do obsługi zapytania oraz ewentualnej dalszej współpracy."],
         },

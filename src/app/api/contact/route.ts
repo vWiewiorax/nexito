@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { contactLimits, needOptions } from "@/content/contact";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const allowedNeeds = new Set(needOptions.map((option) => option.value));
@@ -34,6 +35,11 @@ export async function POST(request: Request) {
 
   if (!submission.name || !emailPattern.test(submission.email) || submission.message.length < 10) {
     return NextResponse.json({ error: "Uzupełnij wymagane pola formularza." }, { status: 422 });
+  }
+
+  const ip = request.headers.get("cf-connecting-ip") ?? request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  if (!(await verifyTurnstile(text(body.turnstileToken, 2048), ip))) {
+    return NextResponse.json({ error: "Potwierdź, że nie jesteś robotem, i spróbuj ponownie." }, { status: 403 });
   }
 
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;

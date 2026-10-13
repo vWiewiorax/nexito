@@ -8,7 +8,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ctaStyles } from "@/components/shared/cta-link";
+import { Turnstile } from "@/components/shared/turnstile";
 import { contactLimits, needOptions } from "@/content/contact";
+import { turnstileSiteKey } from "@/lib/turnstile";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -20,6 +22,8 @@ export function ContactForm() {
   const [needs, setNeeds] = useState<string[]>([]);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaKey, setCaptchaKey] = useState(0);
 
   useEffect(() => {
     const preselected = new URLSearchParams(window.location.search).get("usluga");
@@ -34,6 +38,11 @@ export function ContactForm() {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!captchaToken) {
+      setError("Potwierdź, że nie jesteś robotem.");
+      setStatus("error");
+      return;
+    }
     const form = event.currentTarget;
     const data = new FormData(form);
     setStatus("submitting");
@@ -43,7 +52,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...Object.fromEntries(data.entries()), needs }),
+        body: JSON.stringify({ ...Object.fromEntries(data.entries()), needs, turnstileToken: captchaToken }),
       });
       const result = (await response.json().catch(() => ({}))) as { error?: string };
       if (!response.ok) throw new Error(result.error ?? "Nie udało się wysłać wiadomości.");
@@ -53,6 +62,7 @@ export function ContactForm() {
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "Nie udało się wysłać wiadomości.");
       setStatus("error");
+      setCaptchaKey((key) => key + 1);
     }
   }
 
@@ -161,6 +171,14 @@ export function ContactForm() {
               <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
             </div>
 
+            <div className="flex flex-col gap-2">
+              {turnstileSiteKey ? (
+                <Turnstile siteKey={turnstileSiteKey} onToken={setCaptchaToken} resetKey={captchaKey} />
+              ) : (
+                <p className="text-sm text-destructive">Weryfikacja captcha nie jest skonfigurowana.</p>
+              )}
+            </div>
+
             {status === "error" && (
               <p role="alert" className="rounded-xl border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
                 {error}
@@ -177,8 +195,8 @@ export function ContactForm() {
               </p>
               <button
                 type="submit"
-                disabled={status === "submitting"}
-                className={cn(ctaStyles.base, ctaStyles.primary, ctaStyles.lg, "shrink-0")}
+                disabled={status === "submitting" || !captchaToken}
+                className={cn(ctaStyles.base, ctaStyles.primary, ctaStyles.lg, "shrink-0 disabled:pointer-events-none disabled:opacity-50")}
               >
                 {status === "submitting" ? (
                   <>
