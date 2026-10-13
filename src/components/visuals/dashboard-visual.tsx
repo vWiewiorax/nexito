@@ -228,7 +228,7 @@ export function DashboardVisual() {
           </div>
 
           <div className="flex shrink-0 items-center gap-2">
-            <span className="hidden items-center gap-1.5 rounded-md border border-white/[0.08] px-2 py-1 text-[11px] text-muted-foreground lg:flex">
+            <span className="hidden items-center gap-1.5 rounded-md border border-white/[0.08] px-2 py-1 text-[11px] text-muted-foreground xl:flex">
               <Search className="size-3" />
               Szukaj
             </span>
