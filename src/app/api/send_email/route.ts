@@ -1,3 +1,4 @@
+
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -5,7 +6,7 @@ const MAX_MESSAGES_PER_DAY = 3;
 const ONE_DAY = 24 * 60 * 60 * 1000;
 const COOKIE_NAME = "contact_limit";
 const MAX_FILES = 5;
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB per file — adjust to your host's limit
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB per file
 
 const ALLOWED_ORIGINS = [
   "https://nexiweb.pl",
@@ -14,7 +15,9 @@ const ALLOWED_ORIGINS = [
 
 function corsHeaders(origin: string) {
   return {
-    "Access-Control-Allow-Origin": ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0],
+    "Access-Control-Allow-Origin": ALLOWED_ORIGINS.includes(origin)
+      ? origin
+      : ALLOWED_ORIGINS[0],
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   };
@@ -22,31 +25,50 @@ function corsHeaders(origin: string) {
 
 export async function OPTIONS(req: NextRequest) {
   const origin = req.headers.get("origin") ?? "";
-  return new NextResponse(null, { status: 204, headers: corsHeaders(origin) });
+
+  return new NextResponse(null, {
+    status: 204,
+    headers: corsHeaders(origin),
+  });
 }
 
 export async function POST(req: NextRequest) {
   const origin = req.headers.get("origin") ?? "";
+
   if (!ALLOWED_ORIGINS.includes(origin)) {
-    return NextResponse.json({ error: "Forbidden origin" }, { status: 403, headers: corsHeaders(origin) });
+    return NextResponse.json(
+      { error: "Forbidden origin" },
+      { status: 403, headers: corsHeaders(origin) }
+    );
   }
 
   try {
     const contentType = req.headers.get("content-type") ?? "";
+
     if (!contentType.includes("multipart/form-data")) {
-      return NextResponse.json({ error: "Invalid content type" }, { status: 415, headers: corsHeaders(origin) });
+      return NextResponse.json(
+        { error: "Invalid content type" },
+        { status: 415, headers: corsHeaders(origin) }
+      );
     }
 
     const formData = await req.formData();
 
+    // Contact form fields
     const name = formData.get("name")?.toString().trim();
-    const phone = formData.get("phone")?.toString().trim();
-    const email = formData.get("email")?.toString().trim() || "";
-    const printerModel = formData.get("printerModel")?.toString().trim() || "";
-    const problem = formData.get("problem")?.toString().trim();
+    const company = formData.get("company")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim();
+    const phone = formData.get("phone")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim();
+    const needs = formData.get("needs")?.toString() || "[]";
+    const website = formData.get("website")?.toString().trim() || "";
 
-    if (!name || !phone || !problem) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400, headers: corsHeaders(origin) });
+    // Required fields: name, email, message
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
 
     // Rate limit check
@@ -56,7 +78,10 @@ export async function POST(req: NextRequest) {
 
     if (rawCookie) {
       try {
-        const decoded = JSON.parse(Buffer.from(rawCookie, "base64").toString("utf-8"));
+        const decoded = JSON.parse(
+          Buffer.from(rawCookie, "base64").toString("utf-8")
+        );
+
         count = decoded.count ?? 0;
         lastReset = decoded.lastReset ?? lastReset;
       } catch {
@@ -66,32 +91,53 @@ export async function POST(req: NextRequest) {
     }
 
     const now = Date.now();
+
     if (now - lastReset >= ONE_DAY) {
       count = 0;
       lastReset = now;
     }
 
     if (count >= MAX_MESSAGES_PER_DAY) {
-      return NextResponse.json({ error: "Too many messages sent today." }, { status: 429, headers: corsHeaders(origin) });
+      return NextResponse.json(
+        { error: "Too many messages sent today." },
+        { status: 429, headers: corsHeaders(origin) }
+      );
     }
 
     // Collect and validate files
-    const files = formData.getAll("attachment").filter((f): f is File => f instanceof File && f.size > 0);
+    const files = formData
+      .getAll("attachment")
+      .filter(
+        (f): f is File =>
+          f instanceof File && f.size > 0
+      );
 
     if (files.length > MAX_FILES) {
-      return NextResponse.json({ error: `Max ${MAX_FILES} files allowed` }, { status: 400, headers: corsHeaders(origin) });
+      return NextResponse.json(
+        { error: `Max ${MAX_FILES} files allowed` },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
 
-    const oversized = files.find((f) => f.size > MAX_FILE_SIZE);
+    const oversized = files.find(
+      (f) => f.size > MAX_FILE_SIZE
+    );
+
     if (oversized) {
-      return NextResponse.json({ error: `File "${oversized.name}" exceeds 5MB limit` }, { status: 400, headers: corsHeaders(origin) });
+      return NextResponse.json(
+        {
+          error: `File "${oversized.name}" exceeds 5MB limit`,
+        },
+        { status: 400, headers: corsHeaders(origin) }
+      );
     }
 
     const attachments = await Promise.all(
       files.map(async (file) => ({
         filename: file.name,
         content: Buffer.from(await file.arrayBuffer()),
-        contentType: file.type || "application/octet-stream",
+        contentType:
+          file.type || "application/octet-stream",
       }))
     );
 
@@ -105,26 +151,83 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Parse selected services
+    let selectedNeeds: string[] = [];
+
+    try {
+      const parsed = JSON.parse(needs);
+
+      if (Array.isArray(parsed)) {
+        selectedNeeds = parsed.filter(
+          (item): item is string =>
+            typeof item === "string"
+        );
+      }
+    } catch {
+      selectedNeeds = [];
+    }
+
+    // Escape user-provided HTML to prevent email HTML injection
+    const escapeHtml = (value: string) =>
+      value
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
     const html = `
       <table>
-        <tr><td><strong>Imię i nazwisko</strong></td><td>${name}</td></tr>
-        <tr><td><strong>Telefon</strong></td><td>${phone}</td></tr>
-        <tr><td><strong>E-mail</strong></td><td>${email || "—"}</td></tr>
-        <tr><td><strong>Model drukarki</strong></td><td>${printerModel || "—"}</td></tr>
-        <tr><td><strong>Opis problemu</strong></td><td>${problem}</td></tr>
+        <tr>
+          <td><strong>Imię</strong></td>
+          <td>${escapeHtml(name)}</td>
+        </tr>
+        <tr>
+          <td><strong>Firma</strong></td>
+          <td>${escapeHtml(company || "—")}</td>
+        </tr>
+        <tr>
+          <td><strong>E-mail</strong></td>
+          <td>${escapeHtml(email)}</td>
+        </tr>
+        <tr>
+          <td><strong>Telefon</strong></td>
+          <td>${escapeHtml(phone || "—")}</td>
+        </tr>
+        <tr>
+          <td><strong>Potrzebne usługi</strong></td>
+          <td>${
+            selectedNeeds.length > 0
+              ? selectedNeeds.map(escapeHtml).join(", ")
+              : "Nie wybrano"
+          }</td>
+        </tr>
+        <tr>
+          <td><strong>Wiadomość</strong></td>
+          <td>${escapeHtml(message).replace(/\r?\n/g, "<br>")}</td>
+        </tr>
       </table>
     `;
 
     await transporter.sendMail({
-      to: "tomasz.strzepka@gmail.com",
-      subject: `Nowe zgłoszenie naprawy drukarki — TSdruk (${name})`,
+      to: "storivakontakt@gmail.com",
+      subject: `Nowe zapytanie kontaktowe — NexiWeb (${name})`,
       html,
       attachments,
     });
 
-    const newCookieValue = Buffer.from(JSON.stringify({ count: count + 1, lastReset })).toString("base64");
+    const newCookieValue = Buffer.from(
+      JSON.stringify({
+        count: count + 1,
+        lastReset,
+      })
+    ).toString("base64");
 
-    const res = NextResponse.json({ success: true }, { headers: corsHeaders(origin) });
+    const res = NextResponse.json(
+      { success: true },
+      { headers: corsHeaders(origin) }
+    );
+
     res.cookies.set(COOKIE_NAME, newCookieValue, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -135,6 +238,13 @@ export async function POST(req: NextRequest) {
     return res;
   } catch (err) {
     console.error("Contact API error:", err);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500, headers: corsHeaders(origin) });
+
+    return NextResponse.json(
+      { error: "Internal server error" },
+      {
+        status: 500,
+        headers: corsHeaders(origin),
+      }
+    );
   }
 }
