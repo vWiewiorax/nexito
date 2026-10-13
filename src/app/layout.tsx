@@ -59,6 +59,7 @@ const organizationJsonLd = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pl" className={`${inter.variable} ${jakarta.variable} ${geistMono.variable}`}>
+      <head><meta name="google-site-verification" content="W2qK9CC4QQGZk-qcqxb6WwgGLntZMyDrN6JeBTdbHIY" /></head>
       <body>
         <a
           href="#main"
