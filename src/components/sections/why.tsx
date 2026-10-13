@@ -8,7 +8,7 @@ export function Why() {
     <Section id="o-nas" tone="muted" labelledBy="o-nas-title">
       <SectionHeading
         id="o-nas-title"
-        eyebrow="Dlaczego NEXITO"
+        eyebrow="Dlaczego NEXIWEB"
         title="Technologia bez zbędnego komplikowania."
         description="Jesteśmy zespołem, który łączy inżynierię oprogramowania z rozumieniem biznesu. Budujemy rozwiązania, które mają sens - dziś i za kilka lat."
       />

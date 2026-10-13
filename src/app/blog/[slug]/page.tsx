@@ -115,7 +115,7 @@ export default async function BlogPostPage({ params }: Props) {
             <p className="mt-6 text-base leading-relaxed text-pretty text-muted-foreground sm:text-lg">{post.description}</p>
           </Reveal>
           <Reveal delay={0.15} className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <span>NEXITO</span>
+            <span>NEXIWEB</span>
             <span aria-hidden="true">·</span>
             <time dateTime={post.date}>{formatDate(post.date)}</time>
             <span aria-hidden="true">·</span>

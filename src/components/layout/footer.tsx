@@ -58,7 +58,7 @@ export function Footer() {
           ))}
         </div>
         <div className="mt-16 flex flex-col gap-4 border-t border-border pt-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 NEXITO. Wszystkie prawa zastrzeżone.</p>
+          <p>© 2026 NEXIWEB. Wszystkie prawa zastrzeżone.</p>
           <p className="font-mono tracking-wide">Technologia dla Twojego biznesu.</p>
         </div>
       </Container>

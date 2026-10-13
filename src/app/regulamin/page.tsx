@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/shared/legal-page";
 
 export const metadata: Metadata = {
   title: "Regulamin",
-  description: "Regulamin korzystania ze strony internetowej NEXITO i formularza kontaktowego.",
+  description: "Regulamin korzystania ze strony internetowej NEXIWEB i formularza kontaktowego.",
   alternates: { canonical: "/regulamin" },
 };
 
@@ -12,12 +12,12 @@ export default function RegulaminPage() {
   return (
     <LegalPage
       title="Regulamin serwisu"
-      intro="Regulamin określa zasady korzystania ze strony internetowej NEXITO, w tym z formularza kontaktowego."
+      intro="Regulamin określa zasady korzystania ze strony internetowej NEXIWEB, w tym z formularza kontaktowego."
       sections={[
         {
           title: "Postanowienia ogólne",
           content: [
-            "Serwis prowadzi NEXITO. Korzystanie ze strony jest bezpłatne i nie wymaga zakładania konta.",
+            "Serwis prowadzi NEXIWEB. Korzystanie ze strony jest bezpłatne i nie wymaga zakładania konta.",
             "Korzystając ze strony, akceptujesz niniejszy regulamin.",
           ],
         },

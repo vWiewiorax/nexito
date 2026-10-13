@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/shared/legal-page";
 
 export const metadata: Metadata = {
   title: "Polityka prywatności",
-  description: "Zasady przetwarzania danych osobowych w serwisie NEXITO.",
+  description: "Zasady przetwarzania danych osobowych w serwisie NEXIWEB.",
   alternates: { canonical: "/polityka-prywatnosci" },
 };
 
@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       sections={[
         {
           title: "Administrator danych",
-          content: ["Administratorem danych osobowych przekazanych przez formularz kontaktowy jest NEXITO."],
+          content: ["Administratorem danych osobowych przekazanych przez formularz kontaktowy jest NEXIWEB."],
         },
         {
           title: "Zakres i cel przetwarzania",

@@ -4,7 +4,7 @@ import { LegalPage } from "@/components/shared/legal-page";
 
 export const metadata: Metadata = {
   title: "Cookies",
-  description: "Informacje o plikach cookies w serwisie NEXITO.",
+  description: "Informacje o plikach cookies w serwisie NEXIWEB.",
   alternates: { canonical: "/cookies" },
 };
 

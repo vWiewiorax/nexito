@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: service.title,
     description: service.intro,
     alternates: { canonical: `/uslugi/${service.slug}` },
-    openGraph: { title: `${service.title} - NEXITO`, description: service.description, url: `/uslugi/${service.slug}` },
+    openGraph: { title: `${service.title} - NEXIWEB`, description: service.description, url: `/uslugi/${service.slug}` },
   };
 }
 
